@@ -10,7 +10,7 @@ elif [ "$1" = "gen_pass" ]; then
         x=$x${CHARS:$RANDOM%${#CHARS}:1}
     done
     echo "password is: $x"
-    sed -i "s/\(password\).*/\1 ${x}/" autoexe.cfg
+    sed -i "s/^\(password\).*/\1 ${x}/" autoexe.cfg
 elif [ "$1" = "run" ]; then
     teeworlds-server -f autoexe.cfg
 else
